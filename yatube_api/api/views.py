@@ -5,7 +5,8 @@ from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404
 from django.contrib.auth import get_user_model
 from posts.models import Post, Group, Comment, Follow
-from api.serializers import PostSerializer, GroupSerializer, CommentSerializer, FollowSerializer
+from api.serializers import (PostSerializer, GroupSerializer,
+                             CommentSerializer, FollowSerializer)
 
 User = get_user_model()
 
