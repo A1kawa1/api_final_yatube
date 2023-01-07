@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 from rest_framework import filters
-from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
-from django.core.exceptions import PermissionDenied
+from rest_framework.permissions import (IsAuthenticated,
+                                        IsAuthenticatedOrReadOnly)
 from django.shortcuts import get_object_or_404
 from django.contrib.auth import get_user_model
 from api.permissions import AuthorPermissions
