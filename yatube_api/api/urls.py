@@ -4,8 +4,9 @@ from api.views import PostViewSet, GroupViewSet, CommentViewSet, FollowViewSet
 
 
 router = DefaultRouter()
-router.register('posts', PostViewSet)
-router.register('groups', GroupViewSet)
+router.register('posts', PostViewSet, basename='posts')
+router.register('groups', GroupViewSet, basename='groups')
+router.register('follow', FollowViewSet, basename='follow')
 router.register(
     r'^posts/(?P<id>\d+)/comments',
     CommentViewSet,
@@ -13,11 +14,6 @@ router.register(
 )
 
 urlpatterns = [
-    path('v1/', include('djoser.urls')),
     path('v1/', include('djoser.urls.jwt')),
-    path('v1/', include(router.urls)),
-    path('v1/follow/', FollowViewSet.as_view({
-        'get': 'list',
-        'post': 'create'
-    }))
+    path('v1/', include(router.urls))
 ]
